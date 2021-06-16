@@ -1,11 +1,6 @@
 #! /usr/bin/env python3
 # coding:utf-8
 
-""" 
-This script requires "pillow" librarie which can be installed through pip
-It takes all .dds files in *inputDir* folder, and saves a resized copy in *outputDir* folder
-"""
-
 import copy
 import math
 import os
@@ -17,8 +12,8 @@ from wand.image import Image as wimage
 #################### Set Parameters ####################
 
 # Set input and output paths
-inputDir = 'Input'
-outputDir = 'Output'
+inputDir = 'content'
+outputDir = 'content_compressed'
 
 # Demagnification factor (e.g. if set to 4, a 1024*1024 image will be resized to 256*256)
 # !!! Use power of 2 !!!
@@ -26,7 +21,7 @@ demultiplier = 8
 
 # Minimum border length of resized image, in pixel.
 # !!! Use power of 2 !!!
-minBorderLength = 8
+minBorderLength = 64
 
 #################### Functions ####################
 
@@ -59,6 +54,17 @@ def saveResizedImage(inputFile, tempFile, outputFile):
         img.save(filename = outputFile)
     os.remove(tempFile)
 
+def rm_emptyfolder(path):
+    ''' Borrowed from https://www.programmersought.com/article/46222499930/ '''
+    if not os.path.exists(path):
+        print ( '{0} does not exist in the directory' .format (path))
+        return
+    for root, dirs, files in os.walk(path, topdown=False):   
+     for dir in dirs:
+         if os.path.isdir(os.path.join(root, dir)):
+             if (len(os.listdir(os.path.join(root, dir))) == 0):
+                 os.rmdir(os.path.join(root, dir))
+
 #################### Main program ####################
 
 # Check folder existence
@@ -69,13 +75,7 @@ if os.path.exists(outputDir):
     rmtree(outputDir)
 copytree(inputDir, outputDir, ignore=ignore_patterns('*.*', 'lods'))
 
-""" with pimage.open('IAF007_Re_2000_n.dds') as inputImage:
-    inputImage.load()
-    print(inputImage.format, inputImage.size, inputImage.mode)
-    # print(inputImage.pixel_format)
-    print(inputImage.getpixel((0, 0))[0])
-    print(type(getColorMap(inputImage))) """
-    
+# Parse dds files
 fileList = listDdsFiles(inputDir)
 for fileObj in fileList:
     rawPath = fileObj[len(inputDir):len(fileObj)]
@@ -85,3 +85,6 @@ for fileObj in fileList:
     print('Attempt to convert' + rawPath)
     saveResizedImage(inputFile, tempFile, outputFile)
     print('Successfully converted' + rawPath)
+
+# Clean empty folders
+rm_emptyfolder(outputDir)
