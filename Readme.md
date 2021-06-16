@@ -26,7 +26,7 @@ Although the tool is supposed to do all the job by just one click, it does requi
 5. Assign a denominator in line 20. 
 6. Assign a minimum boarder length in line 24. The resized dds image's short boarder will not be smaller then this number.
 7. Save and run *Texture_Compressor.py*. I suggest to run it by double click or in cmd/powershell, in order to avoid path problems
-It takes all .dds files in *inputDir*(line16) folder, and saves a resized copy in *outputDir*(line20) folder
+It takes all .dds files in `inputDir`(line16) folder, and saves a resized copy in `outputDir`(line20) folder
 
 ## Warning
-If *outputDir*(line20) already exists, it will be firstly removed. (Otherwise `shutil.copytree` won't work...)
+If `outputDir`(line20) already exists, it will be firstly removed. (Otherwise `shutil.copytree` won't work...)
