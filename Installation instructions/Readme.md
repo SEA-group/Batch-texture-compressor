@@ -1,0 +1,1 @@
+Those files are from https://docs.wand-py.org/en/0.6.6/guide/install.html#install-imagemagick-on-windows and https://imagemagick.org/script/download.php#windows, I don't own any of them. This is just a backup
