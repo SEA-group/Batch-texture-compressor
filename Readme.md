@@ -15,8 +15,7 @@ Although the tool is supposed to do all the job by just one click, it does requi
 1. Install pillow library: in cmd or powershell, type `pip install pillow`
 2. Install wand library: in cmd or powershell, type `pip install wand`
 3. Install ImageMagick **and set envionment variable** for it: please follow [this page](https://docs.wand-py.org/en/0.6.6/guide/install.html#install-imagemagick-on-windows). 
-### Attention
-The choice between ImageMagick x86 and x64 depends on your Python, not your OS. For example I have 32-bits Python on 64-bits Windows, so I must install 32-bits ImageMagick
+**Attention:** The choice between ImageMagick x86 and x64 depends on your Python, not your OS. For example I have 32-bits Python on 64-bits Windows, so I must install 32-bits ImageMagick
 ![Screenshot](https://raw.githubusercontent.com/SEA-group/Batch-Texture-Compressor/main/Installation%20instructions/ImageMagick_Installation_1.png)
 
 ## How to use
