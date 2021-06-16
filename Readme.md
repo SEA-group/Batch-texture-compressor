@@ -15,7 +15,8 @@ Although the tool is supposed to do all the job by just one click, it does requi
 1. Install pillow library: in cmd or powershell, type `pip install pillow`
 2. Install wand library: in cmd or powershell, type `pip install wand`
 3. Install ImageMagick **and set envionment variable** for it: please follow [this page](https://docs.wand-py.org/en/0.6.6/guide/install.html#install-imagemagick-on-windows). 
-* **Attention:** The choice between ImageMagick x86 and x64 depends on your Python, not your OS. For example I have 32-bits Python on 64-bits Windows, so I must install 32-bits ImageMagick
+### Attention
+The choice between ImageMagick x86 and x64 depends on your Python, not your OS. For example I have 32-bits Python on 64-bits Windows, so I must install 32-bits ImageMagick
 ![Screenshot](https://raw.githubusercontent.com/SEA-group/Batch-Texture-Compressor/main/Installation%20instructions/ImageMagick_Installation_1.png)
 
 ## How to use
@@ -26,7 +27,8 @@ Although the tool is supposed to do all the job by just one click, it does requi
 5. Assign a denominator in line 20. 
 6. Assign a minimum boarder length in line 24. The resized dds image's short boarder will not be smaller then this number.
 7. Save and run *Texture_Compressor.py*. I suggest to run it by double click or in cmd/powershell, in order to avoid path problems
-It takes all .dds files in `inputDir`(line16) folder, and saves a resized copy in `outputDir`(line20) folder
+
+It takes all .dds files in `inputDir`(line16, is 'res_unpack' by default), and saves a resized copy in `outputDir`(line20)
 
 ## Warning
 If `outputDir`(line20) already exists, it will be firstly removed. (Otherwise `shutil.copytree` won't work...)
