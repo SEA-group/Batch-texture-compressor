@@ -12,8 +12,8 @@ from wand.image import Image as wimage
 #################### Set Parameters ####################
 
 # Set input and output paths
-inputDir = 'content'
-outputDir = 'content_compressed'
+inputDir = 'res_unpack'
+outputDir = 'res_mods_compressed'
 
 # Demagnification factor (e.g. if set to 4, a 1024*1024 image will be resized to 256*256)
 # !!! Use power of 2 !!!
